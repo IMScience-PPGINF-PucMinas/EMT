@@ -1,38 +1,19 @@
-MART: Memory-Augmented Recurrent Transformer for Coherent Video Paragraph Captioning
+EMT: Enhanced-Memory Transformer for Coherent Paragraph Video Captioning
 =====
-PyTorch code for our ACL 2020 paper ["MART: Memory-Augmented Recurrent Transformer for Coherent Video Paragraph Captioning"](https://arxiv.org/abs/2005.05402)
-by [Jie Lei](http://www.cs.unc.edu/~jielei/), [Liwei Wang](http://www.deepcv.net/),
-[Yelong Shen](https://scholar.google.com/citations?user=S6OFEFEAAAAJ&hl=en), 
-[Dong Yu](https://sites.google.com/site/dongyu888/),
-[Tamara L. Berg](http://tamaraberg.com/), and [Mohit Bansal](http://www.cs.unc.edu/~mbansal/)
-
-Generating multi-sentence descriptions for videos is one of the most challenging captioning tasks 
-due to its high requirements for not only visual relevance but also discourse-based coherence 
-across the sentences in the paragraph. Towards this goal, we propose a new approach called 
-Memory-Augmented Recurrent Transformer (MART), which uses a memory module to augment 
-the transformer architecture. The memory module generates a highly summarized memory state 
-from the video segments and the sentence history so as to help better prediction of the 
-next sentence (w.r.t. coreference and repetition aspects), thus encouraging coherent 
-paragraph generation. Extensive experiments, human evaluations, 
-and qualitative analyses on two popular datasets ActivityNet Captions and YouCookII 
-show that MART generates more coherent and less repetitive paragraph captions than baseline methods, 
-while maintaining relevance to the input video events.
+PyTorch code for our ICTAI 2021 paper ["EMT: Enhanced-Memory Transformer for Coherent Paragraph Video Captioning"](https://arxiv.org/abs/2005.05402) Enhanced
+by [Leonardo Vilela Cardoso](http://lattes.cnpq.br/6741312586742178), [Silvio Jamil F. Guimarães](http://lattes.cnpq.br/8522089151904453) and 
+[Zenilton K. G. Patrocínio Jr](http://lattes.cnpq.br/8895634496108399), 
 
 
-
-## Related works:
-- [TVC (Video+Dialogue Captioning)](https://github.com/jayleicn/TVCaption). 
-- [TVR (Video+Dialogue Retrieval)](https://github.com/jayleicn/TVRetrieval). 
-- [TVQA (Localized Video QA)](https://github.com/jayleicn/TVQA). 
-- [TVQA+ (Spatio-Temporal Video QA)](https://github.com/jayleicn/TVQAplus).
+A coherent description is an ultimate goal concerning video captioning through multiple sentences since it may directly impact consistency and intelligibility. A paragraph describing a video is affected by different events extracted from it. When generating a new event, it should produce a detailed narrative of the video content. But it also might provide some clues that may help reduce the textual repetition occurring in the final description. Recently, transformers have emerged as an appealing solution to several tasks, including video captioning. An augmented transformer with a memory module can somehow cope with text repetition. Thus, to further increase the coherence among the generated sentences, we propose the adoption of attention mechanisms to enhance memory data in a memory-augmented transformer. This new approach, called Enhanced-Memory Transformer (EMT), assesses the data importance (about the video segments) contained in the memory module and uses that to improve readability by reducing repetition. Experimental evaluation of EMT using the test split of the ActivityNet Captions dataset achieved 22.84 in CIDEr-D score, and 4.55 in Reduction-4 score (R@4), representing improvements of 1.03\% and 16.36\%, respectively (compared to the literature). The obtained results show the great potential of this new approach as it provides increased coherence among the various video segments, decreasing the repetition in the generated sentences and improving the description diversity.
 
 ## Getting started
 ### Prerequisites
 0. Clone this repository
 ```
 # no need to add --recursive as all dependencies are copied into this repo.
-git clone https://github.com/jayleicn/recurrent-transformer.git
-cd recurrent-transformer
+git clone https://github.com/leol30/EMT.git
+cd EMT
 ```
 
 1. Prepare feature files
@@ -77,10 +58,11 @@ The general training command is:
 ```
 bash scripts/train.sh DATASET_NAME MODEL_TYPE
 ```
-`MODEL_TYPE` can be one of `[mart, xl, xlrg, mtrans, mart_no_recurrence]`, see details below.
+`MODEL_TYPE` can be one of `[emt, mart, xl, xlrg, mtrans, mart_no_recurrence]`, see details below.
 
 | MODEL_TYPE         | Description                            |
 |--------------------|----------------------------------------|
+| emt                | Enhanced-Memory Transformer            |
 | mart               | Memory Augmented Recurrent Transformer |
 | xl                 | Transformer-XL                         |
 | xlrg               | Transformer-XL with recurrent gradient |
@@ -114,20 +96,17 @@ E.g., B@4 10.33; R@4 5.18.
 ## Citations
 If you find this code useful for your research, please cite our paper:
 ```
-@inproceedings{lei2020mart,
-  title={MART: Memory-Augmented Recurrent Transformer for Coherent Video Paragraph Captioning},
-  author={Lei, Jie and Wang, Liwei and Shen, Yelong and Yu, Dong and Berg, Tamara L and Bansal, Mohit},
-  booktitle={ACL},
-  year={2020}
-}
+
 ```
 
 ## Others
 This code used resources from the following projects: 
+[mart](https://github.com/jayleicn/recurrent-transformer)
 [transformers](https://github.com/huggingface/transformers), 
 [transformer-xl](https://github.com/kimiyoung/transformer-xl), 
 [densecap](https://github.com/salesforce/densecap),
 [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py).
 
 ## Contact
-jielei [at] cs.unc.edu
+[Leonardo Vilela Cardoso](lvcardoso@sga.pucminas.br)
+
