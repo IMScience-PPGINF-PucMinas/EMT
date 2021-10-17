@@ -43,7 +43,7 @@ Note that you need to do this each time you start a new session.
 
 
 ### Training and Inference
-We give examples on how to perform training and inference with MART.
+We give examples on how to perform training and inference with EMT.
 
 0. Build Vocabulary
 ```
@@ -52,7 +52,7 @@ bash scripts/build_vocab.sh DATASET_NAME
 `DATASET_NAME` can be `anet` for ActivityNet Captions or `yc2` for YouCookII.
 
 
-1. MART training
+1. EMT training
 
 The general training command is:
 ```
@@ -70,9 +70,9 @@ bash scripts/train.sh DATASET_NAME MODEL_TYPE
 | mart_no_recurrence | mart with recurrence disabled          |
 
 
-To train our MART model on ActivityNet Captions:
+To train our EMT model on ActivityNet Captions:
 ```
-bash scripts/train.sh anet mart
+bash scripts/train.sh anet emt
 ```
 Training log and model will be saved at `results/anet_re_*`.  
 Once you have a trained model, you can follow the instructions below to generate captions. 
@@ -91,7 +91,7 @@ The generated captions are saved at `results/anet_re_*/greedy_pred_val.json`
 bash scripts/eval.sh anet val results/anet_re_*/greedy_pred_val.json
 ```
 The results should be comparable with the results we present at Table 2 of the paper. 
-E.g., B@4 10.33; R@4 5.18.
+E.g., B@4 10.00; C 22.84 R@4 4.55.
 
 ## Citations
 If you find this code useful for your research, please cite our paper:
@@ -101,12 +101,12 @@ If you find this code useful for your research, please cite our paper:
 
 ## Others
 This code used resources from the following projects: 
-[mart](https://github.com/jayleicn/recurrent-transformer)
+[mart](https://github.com/jayleicn/recurrent-transformer),
 [transformers](https://github.com/huggingface/transformers), 
 [transformer-xl](https://github.com/kimiyoung/transformer-xl), 
 [densecap](https://github.com/salesforce/densecap),
 [OpenNMT-py](https://github.com/OpenNMT/OpenNMT-py).
 
 ## Contact
-[Leonardo Vilela Cardoso](lvcardoso@sga.pucminas.br)
+Leonardo Vilela Cardoso with this e-mail: lvcardoso@sga.pucminas.br
 
