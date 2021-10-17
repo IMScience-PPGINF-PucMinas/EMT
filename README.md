@@ -1,6 +1,6 @@
 EMT: Enhanced-Memory Transformer for Coherent Paragraph Video Captioning
 =====
-PyTorch code for our ICTAI 2021 paper ["EMT: Enhanced-Memory Transformer for Coherent Paragraph Video Captioning"](https://arxiv.org/abs/2005.05402) Enhanced
+PyTorch code for our ICTAI 2021 paper "EMT: Enhanced-Memory Transformer for Coherent Paragraph Video Captioning" Enhanced
 by [Leonardo Vilela Cardoso](http://lattes.cnpq.br/6741312586742178), [Silvio Jamil F. Guimarães](http://lattes.cnpq.br/8522089151904453) and 
 [Zenilton K. G. Patrocínio Jr](http://lattes.cnpq.br/8895634496108399), 
 
