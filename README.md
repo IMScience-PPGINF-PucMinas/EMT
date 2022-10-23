@@ -63,12 +63,6 @@ bash scripts/train.sh DATASET_NAME MODEL_TYPE
 | MODEL_TYPE         | Description                            |
 |--------------------|----------------------------------------|
 | emt                | Enhanced-Memory Transformer            |
-| mart               | Memory Augmented Recurrent Transformer |
-| xl                 | Transformer-XL                         |
-| xlrg               | Transformer-XL with recurrent gradient |
-| mtrans             | Vanilla Transformer                    |
-| mart_no_recurrence | mart with recurrence disabled          |
-
 
 To train our EMT model on ActivityNet Captions:
 ```
@@ -96,7 +90,14 @@ E.g., B@4 10.00; C 22.84 R@4 4.55.
 ## Citations
 If you find this code useful for your research, please cite our paper:
 ```
-
+@inproceedings{cardoso2021enhanced,
+  title={Enhanced-Memory Transformer for Coherent Paragraph Video Captioning},
+  author={Cardoso, Leonardo Vilela and Guimaraes, Silvio Jamil F and Patroc{\'\i}nio, Zenilton KG},
+  booktitle={2021 IEEE 33rd International Conference on Tools with Artificial Intelligence (ICTAI)},
+  pages={836--840},
+  year={2021},
+  organization={IEEE}
+}
 ```
 
 ## Others
