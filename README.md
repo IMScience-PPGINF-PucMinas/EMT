@@ -57,11 +57,13 @@ bash scripts/build_vocab.sh DATASET_NAME
 The general training command is:
 ```
 bash scripts/train.sh DATASET_NAME
+```
 
 To train our EMT model on ActivityNet Captions:
 ```
 bash scripts/train.sh anet
 ```
+
 Training log and model will be saved at `results/anet_re_*`.  
 Once you have a trained model, you can follow the instructions below to generate captions. 
 
