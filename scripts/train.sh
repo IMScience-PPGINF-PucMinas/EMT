@@ -34,24 +34,7 @@ fi
 echo ">>>>>>>> Model type ${model_type}"
 echo "---------------------------------------------------------"
 extra_args=()
-if [[ ${model_type} == "mart" ]]; then   # MART
-    extra_args+=(--recurrent)
-elif [[ ${model_type} == "xl" ]]; then    # Transformer-XL
-    extra_args+=(--recurrent)
-    extra_args+=(--xl)
-elif [[ ${model_type} == "xlrg" ]]; then  # Transformer-XLRG
-    extra_args+=(--recurrent)
-    extra_args+=(--xl)
-    extra_args+=(--xl_grad)
-    extra_args+=(--n_epoch)
-    extra_args+=(100)  # it takes longer for this model to converge
-elif [[ ${model_type} == "mtrans" ]]; then    # Vanilla Transformer (from Masked Transformer paper)
-    extra_args+=(--mtrans)
-elif [[ ${model_type} == "mart_no_recurrence" ]]; then    # MART w/o recurrence
-    extra_args=()
-else
-    echo "Wrong option for your first argument, select between anet and yc2"
-fi
+extra_args+=(--recurrent)
 
 python src/train.py \
 --dset_name ${dset_name} \
