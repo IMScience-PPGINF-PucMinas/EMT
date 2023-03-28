@@ -12,7 +12,7 @@ A coherent description is an ultimate goal concerning video captioning through m
 0. Clone this repository
 ```
 # no need to add --recursive as all dependencies are copied into this repo.
-git clone https://github.com/leol30/EMT.git
+git clone https://github.com/IMScience-PPGINF-PucMinas/EMT.git
 cd EMT
 ```
 
